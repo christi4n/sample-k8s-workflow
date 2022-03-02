@@ -1,7 +1,7 @@
 format_version: 3
 pipelines:
   test_application:
-    group: demo
+    group: sample
     label_template: ${COUNT}
     lock_behavior: unlockWhenFinished
     display_order: 2
@@ -21,10 +21,10 @@ pipelines:
         jobs:
           test_app_image:
             timeout: 0
-            elastic_profile_id: hello-go
+            elastic_profile_id: demo-app
             tasks:
             - fetch:
-                artifact_id: hello-go
+                artifact_id: bulletin-board
                 pipeline: build_and_publish_image
                 stage: build_and_publish_image
                 job: build_image
@@ -33,6 +33,6 @@ pipelines:
             - exec:
                 arguments:
                 - -c
-                - docker run $DOCKERHUB_USERNAME/hello-go:$GO_DEPENDENCY_LABEL_UPSTREAM npm test
+                - docker run $DOCKERHUB_USERNAME/bulletin-board:$GO_DEPENDENCY_LABEL_UPSTREAM npm test
                 command: /bin/bash
                 run_if: passed
