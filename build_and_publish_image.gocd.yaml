@@ -8,7 +8,7 @@ pipelines:
     environment_variables:
     materials:
       git:
-        git: https://github.com/gocd-demo/node-bulletin-board.git
+        git: https://github.com/christi4n/hello-go.git
         shallow_clone: true
         auto_update: true
         branch: master
@@ -22,19 +22,19 @@ pipelines:
         jobs:
           build_image:
             timeout: 0
-            elastic_profile_id: demo-app
+            elastic_profile_id: hello-go
             artifacts:
             - external:
-                id: bulletin-board
+                id: hello-go
                 store_id: dockerhub
                 configuration:
                   options:
-                    Image: ${DOCKERHUB_USERNAME}/bulletin-board
+                    Image: ${DOCKERHUB_USERNAME}/hello-go
                     Tag: ${GO_PIPELINE_LABEL}
             tasks:
             - exec:
                 arguments:
                 - -c
-                - docker build -t $DOCKERHUB_USERNAME/bulletin-board:$GO_PIPELINE_LABEL . -f Dockerfile.application
+                - docker build -t $DOCKERHUB_USERNAME/hello-go:$GO_PIPELINE_LABEL . -f Dockerfile.application
                 command: /bin/bash
                 run_if: passed

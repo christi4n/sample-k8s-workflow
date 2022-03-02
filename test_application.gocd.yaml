@@ -21,10 +21,10 @@ pipelines:
         jobs:
           test_app_image:
             timeout: 0
-            elastic_profile_id: demo-app
+            elastic_profile_id: hello-go
             tasks:
             - fetch:
-                artifact_id: bulletin-board
+                artifact_id: hello-go
                 pipeline: build_and_publish_image
                 stage: build_and_publish_image
                 job: build_image
@@ -33,6 +33,6 @@ pipelines:
             - exec:
                 arguments:
                 - -c
-                - docker run $DOCKERHUB_USERNAME/bulletin-board:$GO_DEPENDENCY_LABEL_UPSTREAM npm test
+                - docker run $DOCKERHUB_USERNAME/hello-go:$GO_DEPENDENCY_LABEL_UPSTREAM npm test
                 command: /bin/bash
                 run_if: passed
