@@ -1,6 +1,6 @@
 format_version: 3
 pipelines:
-  build_and_publish_image:
+  check_environment_vars:
     group: demo
     label_template: ${COUNT}
     lock_behavior: none
