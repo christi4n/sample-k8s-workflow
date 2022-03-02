@@ -16,8 +16,8 @@ pipelines:
           elastic_profile_id: demo-app
           tasks:
           - exec:
+              command: /bin/bash  
               arguments:
               - -c
               - printenv
-              command: /bin/bash
               run_if: passed
