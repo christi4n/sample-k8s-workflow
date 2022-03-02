@@ -6,6 +6,9 @@ pipelines:
     lock_behavior: none
     display_order: 4
     environment_variables:
+    materials:
+      git:
+        git: https://github.com/christi4n/sample-k8s-workflow.git
     stages:
     - check_environment_vars:
       approval:
