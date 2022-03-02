@@ -40,10 +40,10 @@ pipelines:
                 artifact_origin: external
                 run_if: passed
             - exec:
-              command: /bin/bash  
-              arguments:
-              - -c
-              - printenv
+                command: /bin/bash
+                arguments:
+                  - -c
+                  - printenv
             - exec:
                 arguments:
                 command: ./app-deployment.sh
