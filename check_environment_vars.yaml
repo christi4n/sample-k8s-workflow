@@ -1,0 +1,22 @@
+format_version: 3
+pipelines:
+  build_and_publish_image:
+    group: demo
+    label_template: ${COUNT}
+    lock_behavior: none
+    display_order: 4
+    environment_variables:
+    stages:
+    - check_environment_vars:
+      approval:
+          type: success
+      jobs:
+        debug:
+          timeout: 0
+          tasks:
+          - exec:
+              arguments:
+              - -c
+              - printenv
+              command: /bin/bash
+              run_if: passed
