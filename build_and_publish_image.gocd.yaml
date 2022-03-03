@@ -8,7 +8,7 @@ pipelines:
     environment_variables:
     materials:
       git:
-        git: https://github.com/gocd-demo/node-bulletin-board.git
+        git: https://github.com/christi4n/node-bulletin-board.git
         shallow_clone: true
         auto_update: true
         branch: master
