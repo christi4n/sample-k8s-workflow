@@ -6,6 +6,7 @@ pipelines:
     lock_behavior: unlockWhenFinished
     display_order: 2
     environment_variables:
+      DOCKERHUB_USERNAME: amarissuisse  
     materials:
       upstream:
         pipeline: build_and_publish_image
