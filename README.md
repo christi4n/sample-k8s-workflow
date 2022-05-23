@@ -14,3 +14,5 @@ Clone the following repository: https://github.com/christi4n/amaris-ocsin.git
 Add Ingress:
 
    kubectl apply -f bulletin-board-service.yml
+
+The board is accessible with the following url: http://bulletin-board.info:8080/
